@@ -5,8 +5,9 @@ This repo contains all the code, links, and other content related to [IoT All th
 ## Episode list
 
 - [S1 E1 - Totally Lit! Bright Ideas for Connected Lighting from AWS Solution Architects](https://www.twitch.tv/aws/video/688516559)
-  - Python code - Coming soon!
-  - Java code - Coming soon!
+  - [Python code](s1e1-totally-lit/hue-python)
+  - [Java code](s1e1-totally-lit/hue-lifx-java)
+  - Java Greengrass functions - coming soon!
 
 ## Security
 

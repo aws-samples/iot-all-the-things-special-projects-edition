@@ -1,0 +1,50 @@
+plugins {
+    id 'java'
+    id 'java-library'
+    id 'application'
+    id 'idea'
+
+    // Creates fat JAR
+    id 'com.github.johnrengelman.shadow' version '6.0.0'
+}
+
+group = 'com.awslabs.iot_all_the_things.special_projects_edition.totally_lit'
+version = '1.0-SNAPSHOT'
+
+def gradleDependencyVersion = '6.6.1'
+
+wrapper {
+    gradleVersion = gradleDependencyVersion
+    distributionType = Wrapper.DistributionType.ALL
+}
+
+// Use the GGProvisioner main class when the JAR is invoked directly
+mainClassName = 'com.awslabs.iot_all_the_things.special_projects_edition.totally_lit.Info'
+
+distZip.enabled = shadowDistZip.enabled = false
+distTar.enabled = shadowDistTar.enabled = false
+
+repositories {
+    mavenCentral()
+    maven { url 'https://jitpack.io' }
+}
+
+def yetAnotherHueApiVersion = '1.3.1'
+def lifxSdkJavaVersion = '2.1.6'
+def slf4jVersion = '1.7.30'
+def jcabiVersion = '0.18.1'
+def vavrVersion = '0.10.3'
+def gsonVersion = '2.8.6'
+
+def junitVersion = '4.12'
+
+dependencies {
+    implementation "io.github.zeroone3010:yetanotherhueapi:$yetAnotherHueApiVersion"
+    implementation "com.github.bwssytems:lifx-sdk-java:$lifxSdkJavaVersion"
+    implementation "org.slf4j:slf4j-log4j12:$slf4jVersion"
+    implementation "com.jcabi:jcabi-log:$jcabiVersion"
+    implementation "io.vavr:vavr:$vavrVersion"
+    implementation "com.google.code.gson:gson:$gsonVersion"
+
+    testImplementation "junit:junit:$junitVersion"
+}
