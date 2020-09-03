@@ -4,8 +4,7 @@ This repo contains all the code, links, and other content related to [IoT All th
 
 ## Episode list
 
-- S1 E1 - Totally Lit! Bright Ideas for Connected Lighting from AWS Solution Architects
-  - [Video](https://www.twitch.tv/aws/video/688516559)
+- [S1 E1 - Totally Lit! Bright Ideas for Connected Lighting from AWS Solution Architects](https://www.twitch.tv/aws/video/688516559)
   - Python code - Coming soon!
   - Java code - Coming soon!
 
