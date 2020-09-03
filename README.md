@@ -1,11 +1,13 @@
-## My Project
+## IoT All the Things: Special Projects Edition
 
-TODO: Fill this README out!
+This repo contains all the code, links, and other content related to [IoT All the Things: Special Projects Edition](https://www.twitch.tv/search?term=aws%20iot%20all%20the%20things%20special%20projects%20edition).
 
-Be sure to:
+## Episode list
 
-* Change the title in this README
-* Edit your repository description on GitHub
+- S1 E1 - Totally Lit! Bright Ideas for Connected Lighting from AWS Solution Architects
+  - [Video](https://www.twitch.tv/aws/video/688516559)
+  - Python code - Coming soon!
+  - Java code - Coming soon!
 
 ## Security
 
