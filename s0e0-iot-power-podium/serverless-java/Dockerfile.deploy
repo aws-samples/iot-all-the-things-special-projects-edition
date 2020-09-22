@@ -1,0 +1,8 @@
+FROM node
+
+WORKDIR /serverless-java
+
+RUN npm install serverless
+RUN npm install --save-dev serverless-apigw-binary
+
+COPY . /serverless-java/

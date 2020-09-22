@@ -1,0 +1,67 @@
+plugins {
+    id 'java'
+    id 'java-library'
+    id 'application'
+    id 'idea'
+
+    // Creates fat JAR
+    id 'com.github.johnrengelman.shadow' version '6.0.0'
+
+    // Downloads binary dependencies
+    id 'de.undercouch.download' version '4.1.1'
+}
+
+// Required for shadow JAR but we don't use it
+mainClassName = 'not-necessary'
+
+sourceCompatibility = 11
+targetCompatibility = 11
+
+def gradleDependencyVersion = '6.6.1'
+
+wrapper {
+    gradleVersion = gradleDependencyVersion
+    distributionType = Wrapper.DistributionType.ALL
+}
+
+repositories {
+    mavenCentral()
+}
+
+distZip.enabled = shadowDistZip.enabled = false
+distTar.enabled = shadowDistTar.enabled = false
+
+task finalize(type: Copy) {
+    from "build/libs/${rootProject.name}-all.jar"
+    into "build/distributions"
+}
+
+build.finalizedBy(finalize)
+
+def awsServerlessJavaContainerVersion = '1.5'
+def awsLambdaJavaCoreVersion = '1.2.1'
+def awsLambdaJavaLog4jVersion = '1.0.0'
+def jacksonVersion = '2.8.5'
+def vavrVersion = '0.10.3'
+def awsSdk2Version = '2.14.22'
+
+dependencies {
+    implementation "com.amazonaws.serverless:aws-serverless-java-container-spark:$awsServerlessJavaContainerVersion"
+    implementation "com.amazonaws:aws-lambda-java-core:$awsLambdaJavaCoreVersion"
+    implementation "com.amazonaws:aws-lambda-java-log4j:$awsLambdaJavaLog4jVersion"
+    implementation "com.fasterxml.jackson.core:jackson-core:$jacksonVersion"
+    implementation "com.fasterxml.jackson.core:jackson-databind:$jacksonVersion"
+    implementation "com.fasterxml.jackson.core:jackson-annotations:$jacksonVersion"
+    implementation "io.vavr:vavr:$vavrVersion"
+    implementation "software.amazon.awssdk:iot:$awsSdk2Version"
+    implementation "software.amazon.awssdk:iotdataplane:$awsSdk2Version"
+}
+
+shadowJar {
+    exclude 'jetty-http*'
+    exclude 'jetty-client*'
+    exclude 'jetty-webapp*'
+    exclude 'jetty-xml*'
+    exclude 'jetty-io*'
+    exclude 'websocket*'
+}

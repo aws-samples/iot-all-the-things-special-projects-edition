@@ -1,0 +1,73 @@
+service: serverless-java
+
+frameworkVersion: ">=2.0.0"
+
+plugins:
+  - serverless-apigw-binary
+
+custom:
+  apigwBinary:
+    types:
+      - '*/*'
+
+provider:
+  name: aws
+  runtime: java11
+  role: PowerPodiumRole
+  timeout: 10
+
+package:
+  artifact: build/distributions/serverless-java-all.jar
+
+functions:
+  iot-power-podium-dashboard:
+    handler: com.serverless.Handler
+    events:
+      - http: ANY /
+      - http: 'ANY {proxy+}'
+
+resources:
+  Resources:
+    PowerPodiumRole:
+      Type: AWS::IAM::Role
+      Properties:
+        AssumeRolePolicyDocument:
+          Version: '2012-10-17'
+          Statement:
+            - Effect: Allow
+              Principal:
+                Service:
+                  - lambda.amazonaws.com
+              Action: sts:AssumeRole
+        Policies:
+          - PolicyName: iotAndLogs
+            PolicyDocument:
+              Version: '2012-10-17'
+              Statement:
+                - Effect: Allow
+                  Action:
+                    - logs:CreateLogGroup
+                    - logs:CreateLogStream
+                    - logs:PutLogEvents
+                  Resource:
+                    - 'Fn::Join':
+                        - ':'
+                        - - 'arn:aws:logs'
+                          - Ref: 'AWS::Region'
+                          - Ref: 'AWS::AccountId'
+                          - 'log-group:/aws/lambda/*:*:*'
+                - Effect: "Allow"
+                  Action:
+                    - "iot:DescribeEndpoint"
+                  Resource: "*"
+                - Effect: "Allow"
+                  Action:
+                    - "iot:Publish"
+                  Resource:
+                    Fn::Join:
+                      - ""
+                      - - "arn:aws:iot:"
+                        - Ref: AWS::Region
+                        - ":"
+                        - Ref: AWS::AccountId
+                        - ":topic/power-podium/*"

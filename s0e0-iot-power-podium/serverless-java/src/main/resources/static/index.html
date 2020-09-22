@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lato&display=swap">
+
+    <title>IoT Power Podium</title>
+
+    <style>
+        body {
+            align-items: center;
+            font-family: Lato, Helvetica Neue, Helvetica, Arial, sans-serif;
+            max-width: 900px;
+            margin: auto;
+            text-align: center;
+        }
+
+        .topnav {
+            background-color: #232F3E;
+            color: white;
+            height: 60px;
+            margin-bottom: 36px;
+            overflow: hidden;
+        }
+
+        .title {
+            font-size: 36px;
+            font-weight: bold;
+            text-align: center;
+        }
+
+        .image {
+            border-radius: 50%;
+        }
+
+        .buttons {
+            margin-top: 36px;
+            max-width: 900px;
+        }
+
+        .button {
+            background-color: #eee;
+            border-radius: 8px;
+            box-shadow: 1px 3px #d0d0d0;
+            color: black;
+            cursor: pointer;
+            float: left;
+            font-size: 22px;
+            height: 125px;
+            margin: 18px;
+            padding: 16px;
+            transition-duration: 0.75s;
+            vertical-align: middle;
+            width: 382px;
+        }
+
+        .button:hover {
+            background-color: #ff9900;
+        }
+    </style>
+    <script crossorigin="anonymous">
+        function ping() {
+            var http = new XMLHttpRequest();
+            http.open("GET", "ping", true);
+            http.send();
+        }
+
+        window.onload = function () {
+            // Ping every few seconds to keep the page alive so it doesn't feel unresponsive from cold starts
+            setInterval(ping, 5000);
+        }
+
+        function doSubmit(urlString) {
+            var http = new XMLHttpRequest();
+            http.open("POST", urlString, true);
+            http.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+            var params = "search=<<get search value>>"; // probably use document.getElementById(...).value
+            http.send(params);
+        }
+    </script>
+
+    <script>
+        String.prototype.endsWith = function (s) {
+            return this.length >= s.length && this.substr(this.length - s.length) == s;
+        }
+
+        var locationString = new String(window.location);
+
+        if (!locationString.endsWith("/")) {
+            // Redirect to the correct URL, slash is required at the end so relative links work as expected
+            // Use window.location.replace so the previous incorrect location is not stored in the browser history
+            window.location.replace(locationString + "/");
+        }
+    </script>
+</head>
+
+<body>
+<div>
+    <div class="topnav">
+        <div class="title">IoT Power Podium</div>
+    </div>
+    <div>
+        <img class="image" src="werner.jpg"/>
+    </div>
+    <div class="buttons">
+        <div class="button" onClick="doSubmit('say/0')">
+            <p>"It's very hard to write a clear document if you do not have clarity of mind"</p>
+        </div>
+        <div class="button" onClick="doSubmit('say/1')">
+            <p>"Everything fails, all the time"</p>
+        </div>
+        <div class="button" onClick="doSubmit('say/2')">
+            <p>"And thou shall not be billed more than that"</p>
+        </div>
+        <div class="button" onClick="doSubmit('say/3')">
+            <p>"Every customer is different"</p>
+        </div>
+        <div class="button" onClick="doSubmit('say/4')">
+            <p>"The cloud can't cover up sloppy engineering"</p>
+        </div>
+        <div class="button" onClick="doSubmit('say/5')">
+            <p>"What do you want to build for your customer, what is the problem you want to solve for them"</p>
+        </div>
+    </div>
+</div>
+</body>
+<script lang="j"
+</html>

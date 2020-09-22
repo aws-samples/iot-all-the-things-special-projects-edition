@@ -1,0 +1,13 @@
+FROM amazoncorretto:11-al2-full
+
+COPY build.gradle /serverless-java/
+COPY gradlew /serverless-java/
+COPY gradle/wrapper/ /serverless-java/gradle/wrapper
+WORKDIR /serverless-java
+
+# Run clean to fetch gradle. We do this before we get the source so we don't pull Gradle each time the source changes.
+RUN ./gradlew clean --no-daemon
+
+# Copy the source and do the final build
+COPY src /serverless-java/src
+RUN ./gradlew build --no-daemon
