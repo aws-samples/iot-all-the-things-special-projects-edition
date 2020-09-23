@@ -18,7 +18,7 @@ then
   >&2 echo "If you have not tried this before it may take a minute or two to build the container, subsequent runs will be faster"
   TAG="hue-lifx-java"
   >&2 docker build -t $TAG .
-  echo "docker run --network=host --rm $TAG $JAR"
+  echo "docker run --rm $TAG $JAR"
   exit 0
 fi
 
