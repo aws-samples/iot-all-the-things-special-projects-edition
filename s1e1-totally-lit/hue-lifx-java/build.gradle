@@ -11,7 +11,7 @@ plugins {
 group = 'com.awslabs.iot_all_the_things.special_projects_edition.totally_lit'
 version = '1.0-SNAPSHOT'
 
-def gradleDependencyVersion = '6.6.1'
+def gradleDependencyVersion = '6.7'
 
 wrapper {
     gradleVersion = gradleDependencyVersion
