@@ -1,4 +1,4 @@
-## S1 E - Connected Menagerie: Bird Spies & Capacitive Touch Pigs
+## S1 E2 - Connected Menagerie: Bird Spies & Capacitive Touch Pigs
 
 In this episode Erin and Tim hack away and show off some of their animal-related projects.
 
