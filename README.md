@@ -9,6 +9,10 @@ This repo contains all the code, links, and other content related to [IoT All th
   - [Java code](s1e1-totally-lit/hue-lifx-java)
   - Java Greengrass functions - coming soon!
 
+- [S1 E2 - Connected Menagerie: Bird Spies & Capacitive Touch Pigs](https://www.twitch.tv/aws/video/722427372)
+  - Java code
+  - [Arduino C++ code](s1e2-connected-menagerie/capacitive-touch-pig) 
+
 ## Security
 
 See [CONTRIBUTING](CONTRIBUTING.md#security-issue-notifications) for more information.
