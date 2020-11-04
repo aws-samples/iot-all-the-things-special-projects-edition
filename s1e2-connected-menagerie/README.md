@@ -14,7 +14,7 @@ In this episode Erin and Tim hack away and show off some of their animal-related
 ## What hardware and libraries were used?
 - Logitech camera Tim used: https://www.logitech.com/en-us/product/hd-pro-webcam-c920
 Deep Java Library: https://djl.ai
-- Zymbit Zymkey Tim mentioned @davidvasandani https://www.zymbit.com/zymkey/ - As he mentioned, it works with AWS IoT Greengrass - https://aws.amazon.com/greengrass/
+- Zymbit Zymkey Tim mentioned: https://www.zymbit.com/zymkey/ - As he mentioned, it works with AWS IoT Greengrass - https://aws.amazon.com/greengrass/
 - If you want to learn more about Tim's special project building the Werner Vogel smart bobble head, check out our Season 2 Finale recording, featuring the bobble head project AND a special surprise guest — the real Werner Vogels! https://www.twitch.tv/aws/video/674965669
 - ESP32 Erin used: https://www.espressif.com/en/products/socs/esp32/overview
 - CapacitiveSensor library: https://github.com/PaulStoffregen/CapacitiveSensor 
