@@ -16,5 +16,5 @@ In this episode Erin and Tim hack away and show off some of their animal-related
 Deep Java Library: https://djl.ai
 - Zymbit Zymkey Tim mentioned @davidvasandani https://www.zymbit.com/zymkey/ - As he mentioned, it works with AWS IoT Greengrass - https://aws.amazon.com/greengrass/
 - If you want to learn more about Tim's special project building the Werner Vogel smart bobble head, check out our Season 2 Finale recording, featuring the bobble head project AND a special surprise guest — the real Werner Vogels! https://www.twitch.tv/aws/video/674965669
-- ESP32 Erin is using: https://www.espressif.com/en/products/socs/esp32/overview
+- ESP32 Erin used: https://www.espressif.com/en/products/socs/esp32/overview
 - CapacitiveSensor library: https://github.com/PaulStoffregen/CapacitiveSensor 
