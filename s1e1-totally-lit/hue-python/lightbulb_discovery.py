@@ -15,8 +15,8 @@ def print_lights(lights_info):
       print("Light {0} is named {1}".format(light, lights_info[light]['name']))
 
 def get_lights(bridge_ip, username):
-    light_url = 'https://'+ bridge_ip + '/api/' + username + '/lights'
-    lights = requests.get(light_url, verify=False)
+    light_url = 'http://'+ bridge_ip + '/api/' + username + '/lights'
+    lights = requests.get(light_url)
     lights_info = lights.json()
     print_lights(lights_info)
     return(lights_info)
@@ -31,8 +31,8 @@ def print_groups_and_lights(groups_info, lights):
         print("The lights are: {0}".format(group_lights))
 
 def get_rooms(bridge_ip, username):
-    group_url = 'https://'+ bridge_ip + '/api/' + username + '/groups'
-    groups = requests.get(group_url, verify=False)
+    group_url = 'http://'+ bridge_ip + '/api/' + username + '/groups'
+    groups = requests.get(group_url)
     groups_info = groups.json()
     return(groups_info)
 

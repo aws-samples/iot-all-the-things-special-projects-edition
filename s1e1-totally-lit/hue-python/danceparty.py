@@ -38,8 +38,8 @@ BRIGHT_MAX = 254
 # Get information for all rooms
 def get_rooms(LOCAL_HUE, USER_NAME):
     groups_info = {}
-    group_url = 'https://'+ LOCAL_HUE + '/api/' + USER_NAME + '/groups'
-    groups = requests.get(group_url, verify=False)
+    group_url = 'http://'+ LOCAL_HUE + '/api/' + USER_NAME + '/groups'
+    groups = requests.get(group_url)
     groups_data = groups.json()
     for g in groups_data:
         lights = {}
@@ -52,8 +52,8 @@ def get_rooms(LOCAL_HUE, USER_NAME):
 # Get lights
 def get_lights(LOCAL_HUE, USER_NAME):
     lights_info = {}
-    light_url = 'https://'+ LOCAL_HUE + '/api/' + USER_NAME + '/lights'
-    lights = requests.get(light_url, verify=False)
+    light_url = 'http://'+ LOCAL_HUE + '/api/' + USER_NAME + '/lights'
+    lights = requests.get(light_url)
     lights_data = lights.json()
     for l in lights_data:
         id = {}
@@ -64,7 +64,7 @@ def get_lights(LOCAL_HUE, USER_NAME):
 
 # Obtains the URL for a specific light ID
 def get_light_url(id):
-    return 'https://' + LOCAL_HUE + '/api/' + USER_NAME + '/lights/' + id
+    return 'http://' + LOCAL_HUE + '/api/' + USER_NAME + '/lights/' + id
 
 
 # Obtains the URL to set a specific light's state directly
@@ -76,7 +76,7 @@ def get_rando(value):
     return random.randrange(value)
 
 def get_light_status(id):
-    state = requests.get(get_light_url(id), verify=False)
+    state = requests.get(get_light_url(id))
     return (state.json())
 
 
@@ -107,7 +107,7 @@ def dance_party_mode(lights_included):
 
 
 def send_request_to_bridge(id, on):
-    requests.put(get_light_state_url(id), data=on, verify=False)
+    requests.put(get_light_state_url(id), data=on)
 
 
 def main():
